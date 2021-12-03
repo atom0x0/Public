@@ -8,9 +8,19 @@
 <font color=red size=4>**T^T 故事就这样开始了......**</font>
 ## 选型分析：
 Prometheus & Zabbix  
+
 首先，观察下二者的结构图
+
+
+
 ![alt Prometheus](./img/Prometheus%E6%9E%B6%E6%9E%84%E5%9B%BE.png)    
+
+
+
 ![alt Zabbix](./img/Zabbix%E6%9E%B6%E6%9E%84%E5%9B%BE.png)   
+
+
+
 ### Prometheus：
 - 基于Pull模式
 - 采用TSDB
@@ -77,7 +87,7 @@ docker exec -it <CONTAINER ID> /bin/bash
 ```
 tar -xzvf node_exporter-0.16.0.linux-amd64.tar.gz -C /usr/local/
 mv /usr/local/node_exporter-0.16.0.linux-amd64 /usr/local/node_exporter/
-``` 
+```
 拉起服务  
 ![alt slave_3](./img/slave_3.png)  
 ```
