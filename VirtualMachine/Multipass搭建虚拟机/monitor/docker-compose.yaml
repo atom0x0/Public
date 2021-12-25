@@ -1,0 +1,92 @@
+version: '3'
+services:
+  influxdbService:
+    image: influxdb:1.3.5
+    container_name: influxdbService
+    command: -config /etc/influxdb/influxdb.conf
+    ports:
+      - "8086:8086"
+    environment:
+      - INFLUXDB_DB=prometheus
+      - INFLUXDB_ADMIN_ENABLED=true
+      - INFLUXDB_ADMIN_USER=admin
+      - INFLUXDB_ADMIN_PASSWORD=admin
+      - INFLUXDB_USER=prom
+      - INFLUXDB_USER_PASSWORD=prom
+
+  mysqlService:
+    image: mysql:5.7
+    container_name: mysqlService
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=root
+
+  mysql:
+    image: prom/mysqld-exporter
+    container_name: mysql
+    ports:
+      - "9104:9104"
+    environment:
+      - DATA_SOURCE_NAME=root:password@(mysql:3306)/database
+
+  node:
+    image: prom/node-exporter
+    container_name: node
+    privileged: true
+    restart: always
+    ports:
+      - "9100:9100"
+
+  blackbox:
+    image: prom/blackbox-exporter
+    container_name: blackbox
+    privileged: true
+    restart: always
+    ports: 
+      - "9115:9115"
+    volumes:
+      - ./blackbox_exporter:/etc/blackbox_exporter
+  
+  alert:
+    image: prom/alertmanager
+    container_name: alertmanager
+    privileged: true
+    restart: always
+    ports:
+      - "9093:9093"
+    volumes:
+      - ./alertmanager_exporter/alertmanager.yml:/etc/alertmanager_exporter/alertmanager.yml
+
+  cAdvisor:
+    image: google/cadvisor:latest
+    container_name: cAdvisor
+    privileged: true
+    restart: always
+    ports:
+      - "8080:8080"
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    privileged: true
+    restart: always
+    ports:
+      - "3000:3000"
+
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    privileged: true
+    restart: always
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      
