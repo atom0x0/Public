@@ -14,7 +14,7 @@ multipass set local.privileged-mounts="True"
 
 ### 3、创建虚机
 
-![image-20211225190504059](C:\Users\Ray\AppData\Roaming\Typora\typora-user-images\image-20211225190504059.png)
+![image-20211225190504059](./img/image-20211225190504059.png)
 
 ```
 multipass launch -n vm-01 -c 1 -m 1G -d 5G --cloud-init C:\Users\Ray\Desktop\config.yaml 20.04
@@ -31,9 +31,9 @@ multipass launch -n vm-01 -c 1 -m 1G -d 5G --cloud-init C:\Users\Ray\Desktop\con
 
 ### 4、挂载目录
 
-![image-20211225190802970](C:\Users\Ray\AppData\Roaming\Typora\typora-user-images\image-20211225190802970.png)
+![image-20211225190802970](./img/image-20211225190802970.png)
 
-![image-20211225190931325](C:\Users\Ray\AppData\Roaming\Typora\typora-user-images\image-20211225190931325.png)
+![image-20211225190931325](./img/image-20211225190931325.png)
 
 ```
 multipass mount C:\Users\Ray\Desktop\monitor vm-01:/home/ubuntu/monitor
@@ -45,7 +45,7 @@ multipass exec vm-01 ls /home/ubuntu
 
 ### 5、查看虚机信息
 
-![image-20211225191124900](C:\Users\Ray\AppData\Roaming\Typora\typora-user-images\image-20211225191124900.png)
+![image-20211225191124900](./img/image-20211225191124900.png)
 
 ```
 multipass info vm-01
@@ -53,7 +53,7 @@ multipass info vm-01
 
 ### 6、进入虚机
 
-![image-20211225191239149](C:\Users\Ray\AppData\Roaming\Typora\typora-user-images\image-20211225191239149.png)
+![image-20211225191239149](./img/image-20211225191239149.png)
 
 ```
 multipass shell vm-01
@@ -61,7 +61,7 @@ multipass shell vm-01
 
 ### 7、进入挂载目录
 
-![image-20211225191433846](C:\Users\Ray\AppData\Roaming\Typora\typora-user-images\image-20211225191433846.png)
+![image-20211225191433846](./img/image-20211225191433846.png)
 
 ```
 cd monitor
@@ -69,9 +69,9 @@ cd monitor
 
 ### 8、基于docker-compose，拉起容器
 
-![image-20211225192306986](C:\Users\Ray\AppData\Roaming\Typora\typora-user-images\image-20211225192306986.png)
+![image-20211225192306986](./img/image-20211225192306986.png)
 
-![image-20211225192339268](C:\Users\Ray\AppData\Roaming\Typora\typora-user-images\image-20211225192339268.png)
+![image-20211225192339268](./img/image-20211225192339268.png)
 
 ```
 docker-compose up -d
@@ -82,7 +82,7 @@ docker-compose ps
 
 ### 9、外部访问，服务可达
 
-![image-20211225192711647](C:\Users\Ray\AppData\Roaming\Typora\typora-user-images\image-20211225192711647.png)
+![image-20211225192711647](./img/image-20211225192711647.png)
 
 ```
 http://172.20.147.35:8080/
