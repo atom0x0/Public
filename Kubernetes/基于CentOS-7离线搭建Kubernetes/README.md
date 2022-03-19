@@ -19,7 +19,7 @@ chmod a+x /root/setup-kube/sealos \
 
 ```text
 | Host           | Role   | /etc/hostname | /etc/hosts            |
-| :------------: | :----: | :-----------: | :-------------------: |
+| ------ | ------ | ------ | ------ |
 | 192.168.32.129 | Master | master        | 192.168.32.129 master
 										192.168.32.130 slave-1
 										192.168.32.131 slave-2
