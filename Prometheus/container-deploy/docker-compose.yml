@@ -1,48 +1,70 @@
 version: '3'
+
+networks:
+  monitor:
+    driver: bridge
+
 services:
-  node:
-    image: prom/node-exporter
-    container_name: node
-    privileged: true
-    restart: always
-    ports:
-      - "9100:9100"
-
-  blackbox:
-    image: prom/blackbox-exporter
-    container_name: blackbox
-    privileged: true
-    restart: always
-    ports: 
-      - "9115:9115"
-    volumes:
-      - ./blackbox_exporter:/etc/blackbox_exporter
-  
-  alert:
-    image: prom/alertmanager
-    container_name: alertmanager
-    privileged: true
-    restart: always
-    ports:
-      - "9093:9093"
-    volumes:
-      - ./alertmanager_exporter/alertmanager.yml:/etc/alertmanager_exporter/alertmanager.yml
-
-  grafana:
-    image: grafana/grafana
-    container_name: grafana
-    privileged: true
-    restart: always
-    ports:
-      - "3000:3000"
-
   prometheus:
     image: prom/prometheus
     container_name: prometheus
+    hostname: prometheus
     privileged: true
     restart: always
     ports:
       - "9090:9090"
     volumes:
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
-      
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+    networks:
+      - monitor
+
+  node:
+    image: prom/node-exporter
+    container_name: node
+    hostname: node
+    privileged: true
+    restart: always
+    ports:
+      - "9100:9100"
+    networks:
+      - monitor
+
+  blackbox:
+    image: prom/blackbox-exporter
+    container_name: blackbox
+    hostname: blackbox
+    privileged: true
+    restart: always
+    ports: 
+      - "9115:9115"
+    volumes:
+      - ./blackbox_exporter:/etc/blackbox_exporter
+    networks:
+      - monitor
+
+  alert:
+    image: prom/alertmanager
+    container_name: alert
+    hostname: alert
+    privileged: true
+    restart: always
+    ports:
+      - "9093:9093"
+    volumes:
+      - ./alertmanager_exporter/alertmanager.yml:/etc/alertmanager_exporter/alertmanager.yml
+    networks:
+      - monitor
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    hostname: grafana
+    privileged: true
+    restart: always
+    ports:
+      - "3000:3000"
+    networks:
+      - monitor
