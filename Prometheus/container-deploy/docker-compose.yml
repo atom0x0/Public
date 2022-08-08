@@ -1,16 +1,16 @@
 version: '3'
 services:
-  node_1:
+  node:
     image: prom/node-exporter
-    container_name: node_1
+    container_name: node
     privileged: true
     restart: always
     ports:
       - "9100:9100"
 
-  blackbox_1:
+  blackbox:
     image: prom/blackbox-exporter
-    container_name: blackbox_1
+    container_name: blackbox
     privileged: true
     restart: always
     ports: 
@@ -18,9 +18,9 @@ services:
     volumes:
       - ./blackbox_exporter:/etc/blackbox_exporter
   
-  alert_1:
+  alert:
     image: prom/alertmanager
-    container_name: alertmanager_1
+    container_name: alertmanager
     privileged: true
     restart: always
     ports:

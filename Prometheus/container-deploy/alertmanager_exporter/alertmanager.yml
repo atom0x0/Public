@@ -7,7 +7,7 @@ route:
 receivers:
 - name: 'web.hook'
   webhook_configs:
-  - url: 'http://152.32.170.211:5001/'
+  - url: 'http://localhost:5001/'
 inhibit_rules:
   - source_match:
       severity: 'critical'
