@@ -1,7 +1,7 @@
 package main
 
 import (
-	"Go-pro/src/bolt"
+	"BoltDB/src/bolt"
 	"fmt"
 )
 
@@ -11,13 +11,13 @@ var key = []byte("foo")
 var value = []byte("bar")
 
 func main() {
-	db := bbolt.GetDB(db_name)
-	bbolt.UpdateKV(db, bucket, key, value)
-	val_1 := bbolt.ReadKV(db, bucket, key)
+	db := bolt.GetDB(db_name)
+	bolt.UpdateKV(db, bucket, key, value)
+	val_1 := bolt.ReadKV(db, bucket, key)
 	fmt.Printf("Value is {%s} \n", val_1)
 
-	bbolt.DeleteKV(db, bucket, key)
-	val_2 := bbolt.ReadKV(db, bucket, key)
+	bolt.DeleteKV(db, bucket, key)
+	val_2 := bolt.ReadKV(db, bucket, key)
 	fmt.Printf("Value is {%s} \n", val_2)
 	defer db.Close()
 }
