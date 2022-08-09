@@ -1,0 +1,11 @@
+#cloud-config
+runcmd:
+  - curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+  - curl -sSL https://get.daocloud.io/docker | sh
+  - sudo touch /etc/docker/daemon.json
+  - sudo chmod 777 /etc/docker/daemon.json
+  - sudo echo '{"registry-mirrors":["https://registry.docker-cn.com"]}' > /etc/docker/daemon.json
+  - sudo usermod -aG docker ubuntu && newgrp docker
+  - sudo gpasswd -a ubuntu docker && newgrp docker
+  - sudo systemctl enable docker
+  - sudo apt install docker-compose
