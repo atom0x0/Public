@@ -3,13 +3,12 @@
 ## 背景概述: 
 鉴于工作原因，前段时间搭建了一套websocket服务，但在实际部署中发现一些问题。由于网络稳定性原因及诸多不可控因素，经常发生ws连接偶发性中断，但服务本身又没有有效的健康检查机制。这样将对服务稳定性造成严重隐患。所以想着通过寻找引入第三方中间件，完成此任务。  
 (起初，自己在本地写了个Shell脚本，循环监听进程，但毕竟太Low了，像贴膏药一样，根本拿不上台面，而且一旦Saas部署，可行性并不高)  
-此时就想着要能有一套完整的监控解决方案，那该多好。  
-<br><br/>
+此时就想着要能有一套完整的监控解决方案，那该多好。  <br><br/>
 ## 选型分析：
 Prometheus & Zabbix  
-首先，观察下二者的结构图
-![alt Prometheus](./img/Prometheus%E6%9E%B6%E6%9E%84%E5%9B%BE.png)    
-![alt Zabbix](./img/Zabbix%E6%9E%B6%E6%9E%84%E5%9B%BE.png)   
+首先，观察下二者的结构图 <br><br/>
+![alt Prometheus](./img/Prometheus_1.png)    
+![alt Zabbix](./img/Zabbix_1.png)   
 ### Prometheus：
 - 基于Pull模式
 - 采用TSDB
