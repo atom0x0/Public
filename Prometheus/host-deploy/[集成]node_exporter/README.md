@@ -42,7 +42,7 @@ scrape_configs:
   # 采集node exporter监控数据
   - job_name: 'node'
     static_configs:
-      - targets: ['111.230.227.23:9100']
+      - targets: ['152.32.170.211:9100']
 ```
 ##### 5> 查看端口
 ```
@@ -50,5 +50,5 @@ netstat -npal|grep 9100
 ```
 ##### 6> 访问
 ```
-http://111.230.227.23:9100/metrics
+http://152.32.170.211:9100/metrics
 ```
