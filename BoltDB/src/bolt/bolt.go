@@ -2,12 +2,13 @@ package bolt
 
 import (
 	"log"
+	"time"
 
 	"github.com/boltdb/bolt"
 )
 
 func GetDB(db_name []byte) *bolt.DB {
-	db, err := bolt.Open(string(db_name), 0600, nil)
+	db, err := bolt.Open(string(db_name), 0600, &bolt.Options{Timeout: 3 * time.Second})
 	if err != nil {
 		log.Fatal(err)
 	}
