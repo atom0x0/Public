@@ -2,6 +2,7 @@ package bolt
 
 import (
 	"log"
+
 	"github.com/boltdb/bolt"
 )
 
