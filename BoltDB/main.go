@@ -49,4 +49,5 @@ func main() {
 	fmt.Printf("Total is {%v} \n", diff)
 	fmt.Printf("Before delete value is {%v} \n", val_befor)
 	fmt.Printf("After delete value is {%v} \n", val_after)
+
 }
