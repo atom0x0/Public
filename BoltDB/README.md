@@ -191,12 +191,13 @@ func (n *node) write(p *page) { ... }
 func (n *node) read(p *page) { ... }
 ```
 ### **0x03 检索机制**
+![alt B+Tree](./img/B+Tree.png)
 ### **0x04 事务机制**
 ##### 4.1> 事务类型
 | 读写事务 | 只读事务 |
 | ------ | ------ |
-| 互斥锁 | 共享锁 |
 | Update() | View() |
+| 互斥锁 | 共享锁 |
 ##### 4.2> Tx数据结构
 ```
 type Tx struct {
