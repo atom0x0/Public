@@ -1,5 +1,8 @@
 # 《Zap原理及实现》
-### 0x00 源码链接
+### 0x00 源码包地址
+```
+git@github.com:uber-go/zap.git
+```
 
 ### 0x01 Zap结构
 ![alt zap-struct](./img/zap-struct.png) 
