@@ -1,1 +1,1 @@
-![alt log-object](./img/log-object.png)
+![alt log-object](./img/ovs.png)
