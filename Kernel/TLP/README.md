@@ -1,4 +1,4 @@
-##### <font color=red>(若图片无法加载，请配置本地hosts文件，重新声明DNS，......或者直接科学上网！)</font>
+##### <font color=red>(若图片无法加载，请配置本地hosts文件，重新声明DNS，...... 或者直接科学上网！)</font>
 # 记: PCI-PCIe总线原理及TLP寻址算法
 ## 1.什么是PCI/PCIe
 ### 1.1 名词解释
