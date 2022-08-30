@@ -1,4 +1,4 @@
-##### <font color=red>(若图片无法加载，请配置本地hosts文件，重新声明DNS，......或者直接科学上网！)</font>
+##### <font color=red>(若图片无法加载，请配置本地hosts文件，重新声明DNS，...... 或者直接科学上网！)</font>
 # 《BIOS引导流程-PCI总线扫描原理-TLP寻址》
 ## 0x01 操作系统启动流程
 ![alt BIOS_01](./img/BIOS_01.png)
