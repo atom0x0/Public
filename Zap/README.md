@@ -89,4 +89,4 @@ func main() {
 ```
 
 ### 0x05 运行结果
-![alt running-result](./img/running-result.png) 
+![alt running-result](./img/run-result.png) 
