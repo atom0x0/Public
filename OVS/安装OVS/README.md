@@ -47,6 +47,7 @@ make modules_install
 
 ### **0x06 启动相关服务以及数据库**
 ![alt ovs-6](./img/ovs-init-6.png)
+
 启动所有进程：
 ```
 export PATH=$PATH:/usr/local/share/openvswitch/scripts
@@ -62,6 +63,20 @@ ovs-ctl stop
 
 ### **0x08 移除原有数据库并重新安装**
 ![alt ovs-9](./img/ovs-init-9.png)
+```
+rm -rf /usr/local/etc/openvswitch/conf.db
+
+mkdir -p /usr/local/etc/openvswitch
+
+ovsdb-tool create /usr/local/etc/openvswitch/conf.db ./vswitchd.ovsschema
+
+ovsdb-server --remote=punix:/usr/local/var/run/openvswitch/db.sock \
+--remote=db:Open_vSwitch,Open_vSwitch,manager_options \
+--private-key=db:Open_vSwitch,SSL,private_key \
+--certificate=db:Open_vSwitch,SSL,certificate \
+--bootstrap-ca-cert=db:Open_vSwitch,SSL,ca_cert \
+--pidfile --detach --log-file
+```
 
 ### **0x09 初始化数据库，仅在使用 ovsdb-tool 创建数据库后第一次需要**
 ```
@@ -75,4 +90,7 @@ ovs-vswitchd --pidfile --detach --log-file
 ![alt ovs-10](./img/ovs-init-10.png)
 
 ### **0x11 验证**
+```
+ovs-vsctl show
+```
 ![alt ovs-11](./img/ovs-init-11.png)
