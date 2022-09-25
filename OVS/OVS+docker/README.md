@@ -1,5 +1,5 @@
 ##### <font color=red>(若图片无法加载，请配置本地hosts文件，重新声明DNS，...... 或者直接科学上网！)</font>
-# 基于OVS 打通docker容器网络
+# 基于OVS 打通 Container 容器网络
 ## 1、环境准备
 ### 1.1 OVS 版本
 ![alt ovs-version](./img/ovs-version.png)
@@ -9,7 +9,7 @@
 ![alt centos-version](./img/centos-version.png)
 ## 2、打开网络包转发
 ```
-echo "net.ipv4.ip_forward=1" /usr/lib/sysctl.d/50-default.conf
+echo "net.ipv4.ip_forward=1" >> /usr/lib/sysctl.d/50-default.conf
 ```
 ```
 systemctl restart network
