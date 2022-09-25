@@ -85,3 +85,11 @@ docker exec -it xray-1 /bin/bash
 ping 192.168.2.3
 ```
 ![alt Check](./img/Check.png)
+## 6、恢复网络环境
+```
+ovs-vsctl del-br xray-br
+```
+```
+systemctl restart network
+```
+![alt ovs-restore](./img/ovs-restore.png)
