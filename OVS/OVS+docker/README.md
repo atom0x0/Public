@@ -7,7 +7,7 @@
 ![alt docker-version](./img/docker-version.png)
 ### 1.3 CentOS 版本
 ![alt centos-version](./img/centos-version.png)
-## 2、打开网络包转发
+## 2、开启网络包转发支持
 ```
 echo "net.ipv4.ip_forward=1" >> /usr/lib/sysctl.d/50-default.conf
 ```
